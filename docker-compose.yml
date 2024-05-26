@@ -9,4 +9,8 @@ services:
       - FLASK_ENV=production
     volumes:
       - .:/app
-    command: flask run --host=0.0.0.0
+    container_name: embedding
+    command: >
+      sh -c "pip install --no-cache-dir -r requirements.txt && 
+              flask run --host=0.0.0.0"
+    restart: always
